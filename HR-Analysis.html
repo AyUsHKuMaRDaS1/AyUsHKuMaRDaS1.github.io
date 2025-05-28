@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Ayush Portfolio</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+ 
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
+  <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex flex-column justify-content-center">
+
+  </header><!-- End Header -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+        <div class="row"> 
+
+        <div style="text-align: left; width: 40%; margin-bottom: 0%; margin-top: 5%;">
+          <h2 style="color:#085a98;">HR Analysis</h2>
+          <h2>Analyzed Data By Creating Interactive Dashboard Using POWER BI.</h2>
+
+        </div>
+
+        <div style="width:20%; ">
+          <picture style="margin-left: 30%; ">
+            <img src="assets/project-image/HR.png" style="width:700px; height:309px; padding-top: 10%; padding-right: 35%;">
+            </picture>
+          </div> 
+          
+        </div>
+
+        <div class="icon-box iconbox-teal" data-aos="zoom-in" data-aos-delay="300" style="width: 100%; margin-top: 20px;margin-bottom: 20px;">
+          <h2 style="font-family: 'Poppins', sans-serif; font-size: 24px; color: #f8893f; margin-bottom: 20px; text-align: left;">📈Project overview</h2>
+          <p style="text-align: justify; font-size: 14px;">This dashboard serves as a valuable tool for the Human Resource Department, aiding in informed decision-making and gaining insights into employee behavior. It enables HR to understand employee preferences through various matrices, identifying areas for improvement.
+          </br> By analyzing sick leave percentages, the department can pinpoint opportunities to enhance productivity. In essence, it empowers HR to optimize workplace strategies and foster a more productive and employee-friendly environment.
+            </p>
+          
+        </div>
+
+        <div class="row">
+
+          <div class="icon-box iconbox-teal" data-aos="zoom-in" data-aos-delay="300" style="width: 100%; margin-top: 20px;margin-bottom: 20px;">
+            <h2 style="font-family: 'Poppins', sans-serif; font-size: 24px; color: #f8893f; margin-bottom: 20px; text-align: left;">Steps followed</a></h2>
+              <br>
+              <div class = "row">
+                <p style="text-align: justify; font-size: 16px;"> </b> Load Data </b>:➡ Import your attendance dataset from a CSV file into Power BI Desktop.
+                <br></b>Transform Data:</b> ➡ Clean and organize the data using Power Query Editor.</br>
+                Duplicate the query and name it "template."</br>
+                Select a specific sheet (e.g., Apr 2022) in the template.</br>
+                Use the first row as the header and adjust column names.</br>
+              </br>Unpivot Dates: ➡ Consolidate dates into a single column, excluding "Employee ID" and "Name," using the unpivot option.
+            </br>Format Date Column: ➡ Rename the consolidated column as "Date" and convert it to a date format, eliminating text values.
+          </br>Create Paramete: ➡ Establish a parameter for the April month sheet named "Worksheet.
+        </br>Create Transformation Function: ➡ Transform the template query into a function named "GetData" to apply the transformation to all sheets.
+      </br>Invoke Custom Column: ➡ Select the main query (Attendance Sheet) and add a column using the "Invoke Custom Column" option. Apply the "GetData" function to all sheets.
+    </br> Load Data:➡ Load the transformed data into Power BI.
+  </div>
+
+  <div class="row">
+
+    <div class="icon-box iconbox-teal" data-aos="zoom-in" data-aos-delay="300" style="width: 100%; margin-top: 20px;margin-bottom: 20px;">
+      <h2 style="font-family: 'Poppins', sans-serif; font-size: 24px; color: #f8893f; margin-bottom: 20px; text-align: left;">Create Measures</a></h2>
+        <br>
+        <div class = "row">
+          <p style="text-align: justify; font-size: 16px;">       *Total Working Days = var totaldays = COUNT('Final Data'[Date]) </br>
+            var nonworkingdays = CALCULATE(count('Final Data'[Value]),
+          </br>'Final Data'[Value] in { "WO","HO"}) Return toaldays - nonworkingdays  
+           
+        </br>*Present Days = var Presentdays = CALCULATE(count('Final Data'[Value]),
+      </br>'Final Data'[Value] = "P") return Presentdays + [WFH Count]
+    
+    </br>*Presence % = DIVIDE([Present Days],[Total Working Days],0)
+    
+  </br>*WFH Count = SUM('Final Data'[WFH Count])
+          
+</br>*SL Count = SUM('Final Data'[SL Count])
+    
+</br>*SL % = DIVIDE([SL Count],[Total Working Days],0)
+                </p>
+                
+                </div>
+              </div>
+          </div>
+
+        
+
+                </div>
+              </div>
+          </div>
+
+
+        </div>
+      </div>  
+    </section>
+    
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h4>HR Analysis</h4>
+      <p>see my work</p>
+
+      <style>
+        .download-button {
+          display: inline-block;
+          padding: 12px 24px;
+          font-size: 16px;
+          font-weight: bold;
+          text-align: center;
+          text-decoration: none;
+          background-color: #1d66a6;
+          color: #ffffff;
+          border-radius: 4px;
+          border: none;
+          transition: background-color 0.3s ease;
+        }
+    
+        .download-button:hover {
+          background-color: #ffffff;
+
+        
+        }
+      </style>
+
+<a href="https://github.com/AyUsHKuMaRDaS1/HR_Analysis" , target="_blank" download class="download-button">github</a>
+
+     
+      <div class="copyright">
+        &copy; Copyright <strong><span>AYUSH</span></strong>. All Rights Reserved
+      </div>
+     
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
